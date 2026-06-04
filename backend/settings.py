@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-7yhjc$n#xvnsun(-tzbse8gqobk^z$mbenjt3$*fzcs1p6b9t0
 DEBUG=  os.environ.get("DJANGO_DEBUG","True") == "True"
 
 ALLOWED_HOSTS = os.environ.get(
-"DJANGO_ALLOWED_HOSTS","localhots,127.0.0.1:8000").split(",")
+"DJANGO_ALLOWED_HOSTS","localhots,127.0.0.1:8000,https://b-backend-id2l.onrender.com").split(",")
 
 
 # Application definition
