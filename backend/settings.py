@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7yhjc$n#xvnsun(-tzbse8gqobk^z$mbenjt3$*fzcs1p6b9t0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
-# DEBUG=  os.environ.get("DJANGO_DEBUG","True") == "True"
+ DEBUG=  os.environ.get("DJANGO_DEBUG","True") == "True"
 
 ALLOWED_HOSTS = os.environ.get(
 "DJANGO_ALLOWED_HOSTS","localhots,127.0.0.1:8000").split(",")
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'coresheaders.middleware.CorsMiddleware', # add this line
+    'corsheaders.middleware.CorsMiddleware', # add this line
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
