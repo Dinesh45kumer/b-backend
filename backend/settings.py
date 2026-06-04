@@ -28,9 +28,11 @@ SECRET_KEY = 'django-insecure-7yhjc$n#xvnsun(-tzbse8gqobk^z$mbenjt3$*fzcs1p6b9t0
 
 DEBUG=  os.environ.get("DJANGO_DEBUG","True") == "True"
 
-ALLOWED_HOSTS = os.environ.get(
-"DJANGO_ALLOWED_HOSTS","localhots,127.0.0.1:8000,b-backend-id2l.onrender.com").split(",")
-
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1.8000",
+    "b-backend-id2l.onrender.com",
+]
 
 # Application definition
 
@@ -48,9 +50,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', # add this line
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -134,19 +136,22 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",                      # local React app (dev)
 ]
 
-CORS_ALLOW_ALL_ORIGINS = False
+# CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
 
 
-CORS_ALLOW_HEADERS = [
-    'content-type',
-    'authorization',
-    'x-csrftoken',
-    'x-requested-with',
-]
+# CORS_ALLOW_HEADERS = [
+#     'content-type',
+#     'authorization',
+#     'x-csrftoken',
+#     'x-requested-with',
+# ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ]
 }
+CSRF_TRUSTED_ORIGINS = [
+    "https://frontend-react-ijwd.vercel.app",
+]
